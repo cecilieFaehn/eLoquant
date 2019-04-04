@@ -9,10 +9,9 @@ import main.NegativAmountException;
 
 public class checkTest {
 
-	@Test  (expected = NegativAmountException.class)
+	@Test  
 	public void testConvertToWord() {
 		Check checkTest = new Check();
-		String res = null;
 		
 		checkTest.setBank("Banque de test");
 		checkTest.setCustomer("Michel DeTest");
