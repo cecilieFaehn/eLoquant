@@ -12,10 +12,23 @@ public class main {
 		// TODO Auto-generated method stub
 		String checkConverted;
 		String contractConverted;
+		Check check150 = null;
+		Contract contract28 = null;
+		try {
+			check150 = new Check(10, "ING Direct", "FR76 450 255 2222 0000", "Michel");	
+		} catch(NegativAmountException e) {} 
+		finally {
+			if (check150 == null)
+				check150 = new Check();
+		}
 		
-		Check check150 = new Check(150, "ING Direct", "FR76 450 255 2222 0000", "Michel");
-		Contract contract28 = new Contract(28, 5, "Jean");
-		
+		try {
+			contract28 = new Contract(28, 5, "Jean");
+		}catch(NegativePriceException e) {}
+		finally {
+			if(contract28 == null) 
+				contract28 = new Contract();
+		}
 		
 		checkConverted = check150.convertToWord();
 		contractConverted = contract28.convertToWord();

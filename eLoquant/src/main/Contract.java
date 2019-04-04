@@ -9,11 +9,20 @@ public class Contract extends AdminPaper{
 	private double price;
 	private double tva;
 	
-	public Contract(double price, double tva, String customer) {
+	public Contract() {
+		price = 0;
+		tva = 0;
+	}
+	
+	public Contract(double price, double tva, String customer) throws NegativePriceException{
 		super();
-		this.price = price;
-		this.tva = tva;
-		this.customer = customer;
+		if(price < 0) 
+			throw new NegativePriceException();
+		else {
+			this.price = price;
+			this.tva = tva;
+			this.customer = customer;
+		}
 	}
 	
 	public double getPrice() {

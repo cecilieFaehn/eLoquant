@@ -10,12 +10,24 @@ public class Check extends AdminPaper{
 	private String bank;
 	private String iban;
 	
-	public Check(double amount, String bank, String iban, String customer) {
+	public Check() {
+		amount =0;
+		bank = "bankName";
+		iban = "FR76 xxx xxx xxx";
+	}
+	
+	public Check(double amount, String bank, String iban, String customer) 	
+			throws NegativAmountException{
 		super();
-		this.amount = amount;
-		this.bank = bank;
-		this.iban = iban;
-		this.customer = customer;
+	
+		if(amount < 0) 
+			throw new NegativAmountException();
+		else {
+			this.amount = amount;
+			this.bank = bank;
+			this.iban = iban;
+			this.customer = customer;
+		}
 	}
 	
 	public double getAmount() {
